@@ -1,7 +1,7 @@
 package Basics;
 
 public class Object {
-    static void myMethod(String fname) {
+    public static void myMethod(String fname) {
         System.out.println("Nguyễn " + fname);
     }
 
