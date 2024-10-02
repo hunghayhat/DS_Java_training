@@ -96,10 +96,34 @@
 		-**Class**: là mẫu cho các đối tượng (vỏ ngoài)
 		-**Object**: Đối tượng là thể hiện của một lớp
 		-Khi các đối tượng được tạo, nó sẽ thừa kế tất cả các biến và phương thức từ lớp tương ứng
-	- Package  
-	- Access Modifier  
-	- Static members, Static blocks  
-	- Final members  
+	- Package
+   
+    - Access Modifier:
+        -Classes: 
+          +**Public**: có thể kết nối qua bất cứ lớp nào
+          +**default**: chỉ có thể kết nối với những class ở trong cùng package
+   
+        -Attributes, method, constructors:
+          +**public**: tất cả các lớp
+          +**private**: chỉ có thể kết nối với các lớp đã được khai báo
+          +**default**: kết nối với các lớp trong cùng package
+          +**protected**: có thể kết nối trong cùng 1 package và các lớp con
+   
+	- Static members, Static blocks: có thể kết nối mà không cần tạo object của class.
+	- Final members: nếu không muốn tồn tại khả năng ghi đè thì khai báo thuộc tính của class duới dạng final:
+      ```
+      public class Main {
+      final int x = 10;
+      final double PI = 3.14;
+
+        public static void main(String[] args) {
+        Main myObj = new Main();
+        myObj.x = 50; // will generate an error: cannot assign a value to a final variable
+        myObj.PI = 25; // will generate an error: cannot assign a value to a final variable
+        System.out.println(myObj.x);
+        }
+        }
+      ```
 	- Kế thừa (Inheritance)  
 	- Constructors trong kế thừa  
 	- this vs super  
