@@ -65,7 +65,7 @@
 	- Method signature  
 10.  Class (7 ngày)  
 	- class Attributes: có vai trò giống như biến của class
-        -Truy cập qua dấu **.**
+        - Truy cập qua dấu **.**
 	- Class Methods: gồm 2 phương thức **static** hoặc **public**
 		-**static**: có thể truy cập mà không cần tạo đối tượng của lớp
 		-**public**: chỉ có thể truy cập qua các **objects**
@@ -81,7 +81,7 @@
      		```
      
 	- Constructors 
-   		-Là 1 hàm (phương thức) đặc biệt được dùng để khởi tạo đối tượng. Nó được gọi khi 1 đối tượng của một lớp được tạo và có thể sử dụng để set giá trị khởi tạo cho các thuộc tính của đối tượng
+   		- Là 1 hàm (phương thức) đặc biệt được dùng để khởi tạo đối tượng. Nó được gọi khi 1 đối tượng của một lớp được tạo và có thể sử dụng để set giá trị khởi tạo cho các thuộc tính của đối tượng
       		```
       			public class Main {
       				int x;  // Create a class attribute
@@ -90,7 +90,7 @@
         				x = 5;  // Set the initial value for the class attribute x
         			}
        		```
-      		-Tên constructor phải trùng với tên class, **không** có return type
+      		- Tên constructor phải trùng với tên class, **không** có return type
    
 	- Classes vs Objects
 		-**Class**: là mẫu cho các đối tượng (vỏ ngoài)
@@ -106,11 +106,11 @@
    				import java.util.*;
                    	```
     - Access Modifier:
-        -Classes: 
+        - Classes: 
           +**Public**: có thể kết nối qua bất cứ lớp nào
           +**default**: chỉ có thể kết nối với những class ở trong cùng package
    
-        -Attributes, method, constructors:
+        - Attributes, method, constructors:
           +**public**: tất cả các lớp
           +**private**: chỉ có thể kết nối với các lớp đã được khai báo
           +**default**: kết nối với các lớp trong cùng package
