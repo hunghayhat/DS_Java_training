@@ -79,8 +79,7 @@
     				}
      			}
      		```
-	- Constructors 
-   		+ Là 1 hàm (phương thức) đặc biệt được dùng để khởi tạo đối tượng. Nó được gọi khi 1 đối tượng của một lớp được tạo và có thể sử dụng để set giá trị khởi tạo cho các thuộc tính của đối tượng
+	- Constructors: Là 1 hàm (phương thức) đặc biệt được dùng để khởi tạo đối tượng. Nó được gọi khi 1 đối tượng của một lớp được tạo và có thể sử dụng để set giá trị khởi tạo cho các thuộc tính của đối tượng. Tên constructor phải trùng với tên class, **không** có return type
       		```
       			public class Main {
       				int x;  // Create a class attribute
@@ -90,7 +89,6 @@
         			}
 	   		}
        		```
-      		+ Tên constructor phải trùng với tên class, **không** có return type
 	- Classes vs Objects
 		+ **Class**: là mẫu cho các đối tượng (vỏ ngoài)
 		+ **Object**: Đối tượng là thể hiện của một lớp
