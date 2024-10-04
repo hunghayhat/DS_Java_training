@@ -67,8 +67,8 @@
 	- class Attributes: có vai trò giống như biến của class
         - Truy cập qua dấu **.**
 	- Class Methods: gồm 2 phương thức **static** hoặc **public**
-		-**static**: có thể truy cập mà không cần tạo đối tượng của lớp
-		-**public**: chỉ có thể truy cập qua các **objects**
+		- **static**: có thể truy cập mà không cần tạo đối tượng của lớp
+		- **public**: chỉ có thể truy cập qua các **objects**
         	```
      			public class Main {
         			int x;
@@ -93,28 +93,28 @@
       		- Tên constructor phải trùng với tên class, **không** có return type
    
 	- Classes vs Objects
-		-**Class**: là mẫu cho các đối tượng (vỏ ngoài)
-		-**Object**: Đối tượng là thể hiện của một lớp
-		-Khi các đối tượng được tạo, nó sẽ thừa kế tất cả các biến và phương thức từ lớp tương ứng
+		- **Class**: là mẫu cho các đối tượng (vỏ ngoài)
+		- **Object**: Đối tượng là thể hiện của một lớp
+		- Khi các đối tượng được tạo, nó sẽ thừa kế tất cả các biến và phương thức từ lớp tương ứng
    
     - Package: dùng để nhóm các class liên quan. Có vai trò giống folder. => Tránh xung đột name, dễ bảo trì code.
-           -Package gồm 2 loại chính: 
-               +Built-in Packages: API Java: https://docs.oracle.com/javase/8/docs/api/
-               +User-defined Packages
-               +Để import toàn bộ package, ở cuối thêm dấu **"*"**
+           - Package gồm 2 loại chính: 
+               + Built-in Packages: API Java: https://docs.oracle.com/javase/8/docs/api/
+               + User-defined Packages
+               + Để import toàn bộ package, ở cuối thêm dấu **"*"**
                    	```
    				import java.util.*;
                    	```
     - Access Modifier:
         - Classes: 
-          +**Public**: có thể kết nối qua bất cứ lớp nào
-          +**default**: chỉ có thể kết nối với những class ở trong cùng package
+          + **Public**: có thể kết nối qua bất cứ lớp nào
+          + **default**: chỉ có thể kết nối với những class ở trong cùng package
    
         - Attributes, method, constructors:
-          +**public**: tất cả các lớp
-          +**private**: chỉ có thể kết nối với các lớp đã được khai báo
-          +**default**: kết nối với các lớp trong cùng package
-          +**protected**: có thể kết nối trong cùng 1 package và các lớp con
+          + **public**: tất cả các lớp
+          + **private**: chỉ có thể kết nối với các lớp đã được khai báo
+          + **default**: kết nối với các lớp trong cùng package
+          + **protected**: có thể kết nối trong cùng 1 package và các lớp con
    
 	- Static members, Static blocks: có thể kết nối mà không cần tạo object của class.
 	- Final members: nếu không muốn tồn tại khả năng ghi đè thì khai báo thuộc tính của class duới dạng final:
@@ -132,16 +132,16 @@
         		}
       		```
     - Đóng gói (Encapsulation): giấu những data **nhạy cảm** từ users
-   		-Khai báo biến/thuộc tính dưới dạng **private**
-   		-Các biến từ lớp khác vẫn có thể truy cập được nếu cung cấp phương thức **get** và **set**
-   			+**get** trả về giá trị của biến
-    		+**set** đặt giá trị cho biến
-   			+Cách đặt tên phương thức: bắt đầu bằng **get**/**set** + tên biến (camelName)
+   		- Khai báo biến/thuộc tính dưới dạng **private**
+   		- Các biến từ lớp khác vẫn có thể truy cập được nếu cung cấp phương thức **get** và **set**
+   			+ **get** trả về giá trị của biến
+    			+ **set** đặt giá trị cho biến
+   			+ Cách đặt tên phương thức: bắt đầu bằng **get**/**set** + tên biến (camelName)
    		-Tại sao cần sử dụng đóng gói:
-			+Kiểm soát thuộc tính và phương thức tốt hơn
-   			+Các thuộc tính trở thành read-only (get), write-only (set)
-      		+Có thể thay đổi 1 phần của code mà không ảnh hưởng đến phần khác
-   			+Tăng cường tính bảo mật
+			+ Kiểm soát thuộc tính và phương thức tốt hơn
+   			+ Các thuộc tính trở thành read-only (get), write-only (set)
+      			+ Có thể thay đổi 1 phần của code mà không ảnh hưởng đến phần khác
+   			+ Tăng cường tính bảo mật
     		```
      			public class Person {
 		 		private String name;
@@ -159,16 +159,16 @@
     		```
 
 	- Kế thừa (Inheritance): 1 lớp có thể kế thừa các phương thức/thuộc tính của các lớp khác
-   		-2 loại: 
-   			+**subclass** (child)
-    		+**superclass** (parent)
-   		-Để thừa kế từ 1 class, dùng keyword **extends**
-		-Tác dụng: dễ tái sử dụng (set **protected**). Nếu set private thì sẽ không truy cập được.
+   		- 2 loại: 
+   			+ **subclass** (child)
+    			+ **superclass** (parent)
+   		- Để thừa kế từ 1 class, dùng keyword **extends**
+		- Tác dụng: dễ tái sử dụng (set **protected**). Nếu set private thì sẽ không truy cập được.
 
 	- Constructors trong kế thừa:
-   		-Khi một lớp con được tạo ra, trước tiên constructor của lớp cha sẽ được gọi
-   		-Nếu constructor của lớp cha không có tham số (mặc định), Java sẽ tự động gọi constructor đó khi lớp con được tạo
-   		-Nếu lớp cha không có constructor mặc định mà chỉ có constructor có tham số th phải gọi constructor đó 1 cách tường minh từ constructor của lớp con bằng sử dụng **super**
+   		- Khi một lớp con được tạo ra, trước tiên constructor của lớp cha sẽ được gọi
+   		- Nếu constructor của lớp cha không có tham số (mặc định), Java sẽ tự động gọi constructor đó khi lớp con được tạo
+   		- Nếu lớp cha không có constructor mặc định mà chỉ có constructor có tham số th phải gọi constructor đó 1 cách tường minh từ constructor của lớp con bằng sử dụng **super**
     - Đa hình (Polymorphism)
 	- this vs super  
 	- Method Overloading và Overriding  
