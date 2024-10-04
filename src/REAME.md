@@ -96,7 +96,15 @@
 		-**Class**: là mẫu cho các đối tượng (vỏ ngoài)
 		-**Object**: Đối tượng là thể hiện của một lớp
 		-Khi các đối tượng được tạo, nó sẽ thừa kế tất cả các biến và phương thức từ lớp tương ứng
-	- Package
+   
+    - Package: dùng để nhóm các class liên quan. Có vai trò giống folder. => Tránh xung đột name, dễ bảo trì code.
+           -Package gồm 2 loại chính: 
+               +Built-in Packages: API Java: https://docs.oracle.com/javase/8/docs/api/
+               +User-defined Packages
+               +Để import toàn bộ package, ở cuối thêm dấu **"*"**
+                   ```
+   					import java.util.*;
+                   ```
    
     - Access Modifier:
         -Classes: 
@@ -124,8 +132,45 @@
         }
         }
       ```
-	- Kế thừa (Inheritance)  
-	- Constructors trong kế thừa  
+    - Đóng gói (Encapsulation): giấu những data **nhạy cảm** từ users
+   		-Khai báo biến/thuộc tính dưới dạng **private**
+   		-Các biến từ lớp khác vẫn có thể truy cập được nếu cung cấp phương thức **get** và **set**
+   			+**get** trả về giá trị của biến
+    		+**set** đặt giá trị cho biến
+   			+Cách đặt tên phương thức: bắt đầu bằng **get**/**set** + tên biến (camelName)
+   		-Tại sao cần sử dụng đóng gói:
+			+Kiểm soát thuộc tính và phương thức tốt hơn
+   			+Các thuộc tính trở thành read-only (get), write-only (set)
+      		+Có thể thay đổi 1 phần của code mà không ảnh hưởng đến phần khác
+   			+Tăng cường tính bảo mật
+    ```
+     public class Person {
+		 private String name;
+   
+   		//Getter
+   		public String getName(){
+   			return name;
+   		}
+   
+   		//Setter
+   		public void setName (String newName){
+   			this.name = newName; // "this" dùng để chỉ đối tượng hiện tại
+   		}
+   	}
+    ```
+
+	- Kế thừa (Inheritance): 1 lớp có thể kế thừa các phương thức/thuộc tính của các lớp khác
+   		-2 loại: 
+   			+**subclass** (child)
+    		+**superclass** (parent)
+   		-Để thừa kế từ 1 class, dùng keyword **extends**
+		-Tác dụng: dễ tái sử dụng (set **protected**). Nếu set private thì sẽ không truy cập được.
+
+	- Constructors trong kế thừa:
+   		-Khi một lớp con được tạo ra, trước tiên constructor của lớp cha sẽ được gọi
+   		-Nếu constructor của lớp cha không có tham số (mặc định), Java sẽ tự động gọi constructor đó khi lớp con được tạo
+   		-Nếu lớp cha không có constructor mặc định mà chỉ có constructor có tham số th phải gọi constructor đó 1 cách tường minh từ constructor của lớp con bằng sử dụng **super**
+    - Đa hình (Polymorphism)
 	- this vs super  
 	- Method Overloading và Overriding  
 	- Dynamic method dispatch (Polymorphism)  
