@@ -92,9 +92,9 @@
        		```
       		+ Tên constructor phải trùng với tên class, **không** có return type
 	- Classes vs Objects
-		- **Class**: là mẫu cho các đối tượng (vỏ ngoài)
-		- **Object**: Đối tượng là thể hiện của một lớp
-		- Khi các đối tượng được tạo, nó sẽ thừa kế tất cả các biến và phương thức từ lớp tương ứng
+		+ **Class**: là mẫu cho các đối tượng (vỏ ngoài)
+		+ **Object**: Đối tượng là thể hiện của một lớp
+		+ Khi các đối tượng được tạo, nó sẽ thừa kế tất cả các biến và phương thức từ lớp tương ứng
    
     - Package: dùng để nhóm các class liên quan. Có vai trò giống folder. => Tránh xung đột name, dễ bảo trì code.
            - Package gồm 2 loại chính: 
