@@ -81,14 +81,15 @@
      		```
 	- Constructors 
    		+ Là 1 hàm (phương thức) đặc biệt được dùng để khởi tạo đối tượng. Nó được gọi khi 1 đối tượng của một lớp được tạo và có thể sử dụng để set giá trị khởi tạo cho các thuộc tính của đối tượng
-      	```
+      		```
       			public class Main {
       				int x;  // Create a class attribute
         			// Create a class constructor for the Main class
         			public Main() {
         				x = 5;  // Set the initial value for the class attribute x
         			}
-       	```
+	   		}
+       		```
       		+ Tên constructor phải trùng với tên class, **không** có return type
 	- Classes vs Objects
 		- **Class**: là mẫu cho các đối tượng (vỏ ngoài)
