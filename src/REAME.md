@@ -102,10 +102,9 @@
                +Built-in Packages: API Java: https://docs.oracle.com/javase/8/docs/api/
                +User-defined Packages
                +Để import toàn bộ package, ở cuối thêm dấu **"*"**
-                   ```
-   					import java.util.*;
-                   ```
-   
+                   	```
+   				import java.util.*;
+                   	```
     - Access Modifier:
         -Classes: 
           +**Public**: có thể kết nối qua bất cứ lớp nào
@@ -119,19 +118,19 @@
    
 	- Static members, Static blocks: có thể kết nối mà không cần tạo object của class.
 	- Final members: nếu không muốn tồn tại khả năng ghi đè thì khai báo thuộc tính của class duới dạng final:
-      ```
-      public class Main {
-      final int x = 10;
-      final double PI = 3.14;
+      		```
+      			public class Main {
+      				final int x = 10;
+      				final double PI = 3.14;
 
-        public static void main(String[] args) {
-        Main myObj = new Main();
-        myObj.x = 50; // will generate an error: cannot assign a value to a final variable
-        myObj.PI = 25; // will generate an error: cannot assign a value to a final variable
-        System.out.println(myObj.x);
-        }
-        }
-      ```
+        		public static void main(String[] args) {
+        			Main myObj = new Main();
+        			myObj.x = 50; // will generate an error: cannot assign a value to a final variable
+        			myObj.PI = 25; // will generate an error: cannot assign a value to a final variable
+        			System.out.println(myObj.x);
+        			}
+        		}
+      		```
     - Đóng gói (Encapsulation): giấu những data **nhạy cảm** từ users
    		-Khai báo biến/thuộc tính dưới dạng **private**
    		-Các biến từ lớp khác vẫn có thể truy cập được nếu cung cấp phương thức **get** và **set**
@@ -143,21 +142,21 @@
    			+Các thuộc tính trở thành read-only (get), write-only (set)
       		+Có thể thay đổi 1 phần của code mà không ảnh hưởng đến phần khác
    			+Tăng cường tính bảo mật
-    ```
-     public class Person {
-		 private String name;
+    		```
+     			public class Person {
+		 		private String name;
    
-   		//Getter
-   		public String getName(){
-   			return name;
-   		}
+   			//Getter
+   			public String getName(){
+   				return name;
+   			}
    
-   		//Setter
-   		public void setName (String newName){
-   			this.name = newName; // "this" dùng để chỉ đối tượng hiện tại
-   		}
-   	}
-    ```
+   			//Setter
+   			public void setName (String newName){
+   				this.name = newName; // "this" dùng để chỉ đối tượng hiện tại
+   			}
+   			}
+    		```
 
 	- Kế thừa (Inheritance): 1 lớp có thể kế thừa các phương thức/thuộc tính của các lớp khác
    		-2 loại: 
