@@ -166,11 +166,42 @@
                - Khi một lớp con được tạo ra, trước tiên constructor của lớp cha sẽ được gọi
                - Nếu constructor của lớp cha không có tham số (mặc định), Java sẽ tự động gọi constructor đó khi lớp con được tạo
                - Nếu lớp cha không có constructor mặc định mà chỉ có constructor có tham số th phải gọi constructor đó 1 cách tường minh từ constructor của lớp con bằng sử dụng **super**
-        - Đa hình (Polymorphism)
-        - this vs super  
-        - Method Overloading và Overriding  
-        - Dynamic method dispatch (Polymorphism)  
+     
+        - Đa hình (Polymorphism): mang nghĩa "nhiều dạng", xảy ra khi có nhiều lớp liên quan với nhau qua kế thừa
+
+        - this vs super:
+          + **super**: dùng để kết nối với những phương thức của lớp cha
+            + Không thể sử dụng để định danh
+            + Gọi method/constructor của super-class
+            + Mục đích chính là gọi các biến/phương thức/constructor của lớp cha
+     
+          + **this**: kết nối với những phương thức của lớp hiện tại, và sử dụng trong những trường hợp:
+            + Tham chiếu biến thể hiện của lớp hiện tại
+            + Gọi/khởi tạo hàm tạo của lớp hiện tại
+            + Có thể được chuyển làm đối số khi gọi method/constructor
+            + Trả về thể hiện của lớp hiện tại
+     
+        - Method Overloading và Overriding 
+     		+ **Method Overloading (nạp chồng phương thức)**: tạo ra nhiều phương thức trong cùng 1 lớp, cùng tên nhưng khác nhau về số lượng hay kiểu tham số.
+             + Cung cấp khả năng thực hiện cùng 1 hành động nhưng với kiểu dữ liệu đầu vào khác nhau
+             + Cách thực hiện: các phương thức phải có cùng tên, nhưng tham số phải khác nhau.
+     		+ **Method Overriding (ghi đè phương thức)**: 1 phương thức của lớp con có cùng chữ ký (tên, dsach tham số) trong lớp cha.
+             + Cho phép lớp con cung cấp 1 cách triển khai cụ thể của phương thức đã được khai báo trong lớp cha
+             + Lớp con định nghĩa lại phương thức của lớp cha, nếu muốn thì có thể thay đổi nội dung của phương thức.
+             
+        - Dynamic method dispatch (Polymorphism): xảy ra khi một phương thức được ghi đè trong lớp con được gọi thông qua tham chiếu lớp cha (superclass reference). Phương thức nào được gọi sẽ dựa trên đối tượng thực sự mà tham chiếu trỏ đến tại thời gian chạy
+     		+ Khi một phương thức bị ghi đè, quyết định sử dụng phương thức nào (từ lớp cha hay lớp con) sẽ phụ thuộc vào đối tượng thực sự mà tham chiếu đang trỏ tới tại runtime.
+          	+ Khi sử dụng Dynamic Method Dispatch, bạn có thể tạo một tham chiếu của lớp cha để tham chiếu tới đối tượng của lớp con. Khi gọi phương thức bị ghi đè, phương thức trong lớp con sẽ được thực thi (nếu lớp con đã ghi đè phương thức đó).
+        	+ Chỉ có **phương thức** mới tham gia và Dynamic Method Dispatch, còn **thuộc tính** thì **không**. Giá trị của thuộc tính phụ thuộc vào kiểu của tham chiếu, chứ không phải đối tượng tại runtime.
+          
         - Cơ chế Upcasting và Downcasting
+     		+ Upcasting: quá trình chuyển đổi (cast) một đối tượng của l con (subclass) thành đối tượng của lớp cha (superclass)
+             + Mục đích: tận dụng tính đa hình và tránh việc phải biết chính xác lớp con của đối tượng.
+             + Cơ chế: an toàn + tự động. Không cần sử dụng từ khoá "cast", java tự thực hiện.
+          
+     		+ Downcasting: quá trình chuyển đổi 1 đối tượng của lớp cha về lớp con. Không an toàn và phải được thực hiện thủ công.
+             + Mục đích: sử dụng khi muốn truy cập các phương thức và thuộc tính cụ thể của lớp con từ một tham chiếu của lớp cha.
+             + Cơ chế: không tự động, có thể gây lỗi ClassCastException tại runtime nếu đối tượng không phải là một thể hiện của lớp con.
         - Abstract class  
         - Interface  
         - Inheritance vs implement Interface  
