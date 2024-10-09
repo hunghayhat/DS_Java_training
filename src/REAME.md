@@ -70,7 +70,7 @@
 		- **static**: có thể truy cập mà không cần tạo đối tượng của lớp
 		- **public**: chỉ có thể truy cập qua các **objects**
         	```
-     			public class Main {
+     			 public class Main {
         			int x;
         			public static void main(String[] args) {
     					Main myObj = new Main();
@@ -202,13 +202,59 @@
      		+ Downcasting: quá trình chuyển đổi 1 đối tượng của lớp cha về lớp con. Không an toàn và phải được thực hiện thủ công.
              + Mục đích: sử dụng khi muốn truy cập các phương thức và thuộc tính cụ thể của lớp con từ một tham chiếu của lớp cha.
              + Cơ chế: không tự động, có thể gây lỗi ClassCastException tại runtime nếu đối tượng không phải là một thể hiện của lớp con.
-        - Abstract class  
-        - Interface  
-        - Inheritance vs implement Interface  
-        - Interface vs Abstract class  
-        - Anonymous Class  
-        - Singelton Class  
-        - Enum  
+     
+        - Inner class: Lồng 1 class trong 1 class khác => nhóm các lớp thuộc về nhau => mã dễ đọc, dễ bảo trì
+     		+ Để truy cập lớp bên trong, tạo 1 đối tượng của lớp ngoài, sau đó tạo 1 đối tượng của lớp bên trong.
+        	+ Nếu inner class là private thì lớp bên ngoài không truy cập được
+          
+        - Abstract class: là lớp hạn chế, không thể dùng để tạo đối tượng (để truy cập, nó phải được thừa kế từ một lớp khác) 
+          + Một lớp trừu tượng có thể có cả phương thức trừu tượng và phương thức thông thường:
+                   `abstract class Animal {
+                   public abstract void animalSound();
+                   public void sleep() {
+                       System.out.println("ZZZ")	
+                }
+                }`
+          + Abstract method: chỉ có thể sử dụng trong lớp trừu tượng, và không có body. Body được cung cấp bởi subclass (thừa kế) 
+          + Lợi ích của việc sử dụng abstract class/method:
+          	+ Tăng tính bảo mật -> ẩn các chi tiết nhất định và chỉ hiển th những nội dung quan trọng
+          
+        - Interface: một cách khác để trừu tượng hoá dữ liệu trong Java
+     		+ Interface là 1 **completely abstract class** dùng để nhóm các phương thức liên quan với phần body **rỗng**
+          		`interface Animal {
+          			public void animalSound(); //interface method
+          			public void run(); // interface method
+          		`
+        	+ Để kêt nối đến các phương thức interface, interface phải được **implemented** (tương tự thừa kế) bởi 1 lớp khác với keyword **implement**
+          	+ Giống lớp trừu tượng, interfaces không dùng để tạo objects
+            + Interface method không có body, body của nó sẽ được cung cấp bởi "implement" class
+            + Trên implementation của 1 interface, phải ghi đè (override toàn bộ phương thức của nó)
+            + Các thuộc tính mặc định của interface là **public**, **static** và **final**
+            + 1 interface không thể chứa hàm tao (constructor) vì nó không thể tạo objects
+            + Java không hỗ trợ đa kế thừa (multiple inheritance) - tức là 1 class chỉ có thể thừa kế từ 1 superclass. 
+          		-> Có thể làm được với interfaces, vì 1 class có thể implement nhiều interfaces!
+          		`class DemoClass implements FirstInterface, SecondInterface {}`
+     
+        - Anonymous Class: là một loại lớp không có tên (ẩn danh), được sử dụng để khai báo và khởi tạo một lớp ngay tại chỗ trong một biểu thức. Anonymous Class thường được sử dụng khi bạn cần triển khai một interface hoặc một class mà chỉ được sử dụng một lần, giúp cho code ngắn gọn và dễ đọc hơn.
+     		+ Một vài đặc điểm chính
+           		+ Không có tên: không cần định nghĩa tên lớp khi dùng anonymous class
+             	+ Được sử dụng 1 lần: thường được khai báo và sử dụng ngay trong phương thức hoặc khối lệnh, không cần tái sử dụng
+             	+ Dùng để triển khai interface hoặc class abstract
+              	+ Anonymous Class giúp triển khai một lớp con ngay trong biểu thức mà không cần phải tạo ra một lớp cụ thể.
+      
+        - Singelton Class: là 1 mẫu thiết kế (design pattern) -> đảm bảo chỉ có 1 đối tượng duy nhất trong lớp đó được tạo ra trong suốt vòng đời của ứng dụng
+          + Đặc điểm:
+            + Chỉ có 1 đối tượng duy nhất
+            + Toàn cục (global access): cung cấp quyền truy cập đến đối tượng này từ mọi nơi trong chương trình
+          + Cách triển khai:
+            + Sử dụng 1 biến static để lưu trữ instance duy nhất
+            + Tạo 1 constructor private để ngăn việc tạo đối tượng từ bên ngoài
+            + Cung cấp 1 phương thức static để truy cập instance duy nhất này
+     
+        - Enum: viết tắt của Enumerations - sự liệt kê: là 1 class đặc biệt đại diện cho 1 nhóm các hằng số (giống biến **final**)
+     		+ Enum có thể giống như 1 class, có thuộc tính và phương thức. Khác biệt duy nhất là hằng số enum là **public**, **static** và **final**
+        	+ Enum không thể dùng để tạo object và extends đến lớp khác, nhưng nó có thể implement interface
+            + Lợi ích: Thích hợp khi có những giá trị không thay đổi như ngày tháng năm, màu sắc...
 11. Exception Handling (3 ngày)  
 	- Error vs Exception  
 	- Checked Exception and Unchecked Exception  

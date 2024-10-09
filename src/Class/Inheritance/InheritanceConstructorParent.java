@@ -1,4 +1,4 @@
-package Inheritance;
+package Class.Inheritance;
 
 class Parent {
     public Parent () {

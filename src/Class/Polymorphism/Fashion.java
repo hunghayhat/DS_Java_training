@@ -1,4 +1,4 @@
-package Polymorphism;
+package Class.Polymorphism;
 
 public class Fashion {
     public void shoe(){

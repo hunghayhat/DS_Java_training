@@ -1,4 +1,4 @@
-package Encapsulation;
+package Class.Encapsulation;
 
 public class EncapsulationTest {
     public static void main(String[] args) {

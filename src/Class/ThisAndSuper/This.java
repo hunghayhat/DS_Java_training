@@ -1,4 +1,4 @@
-package ThisAndSuper;
+package Class.ThisAndSuper;
 
 public class This {
     int a = 10;

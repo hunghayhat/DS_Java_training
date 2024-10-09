@@ -1,4 +1,4 @@
-package Inheritance;
+package Class.Inheritance;
 
 public class Car {
     protected String brand = "Porsche";

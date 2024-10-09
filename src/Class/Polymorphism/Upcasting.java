@@ -1,4 +1,4 @@
-package Polymorphism;
+package Class.Polymorphism;
 
 
 class Animal1 {
