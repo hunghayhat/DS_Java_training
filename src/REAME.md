@@ -256,10 +256,34 @@
         	+ Enum không thể dùng để tạo object và extends đến lớp khác, nhưng nó có thể implement interface
             + Lợi ích: Thích hợp khi có những giá trị không thay đổi như ngày tháng năm, màu sắc...
 11. Exception Handling (3 ngày)  
-	- Error vs Exception  
-	- Checked Exception and Unchecked Exception  
+	- Error vs Exception: đều là throwable object, nhưng chúng đại diện cho các loại vấn đề khác nhau có tể xảy ra trong quá trình thực thi chương trình.
+    	- Đều là lớp con của  `**java.lang.Throwable**`
+    	- **Error**: do các vấn đề nghiêm trọng ngoài tầm kiểm soát của chương trình (hết bộ nhớ, hệ thống sập...), được biểu diễn bằng Error class và các lớp con của nó
+      		+ Gồm 3 loại : **thời gian biên dịch**, **thời gian chạy**, **hợp lý**
+        	+ Một số error phổ biến
+      			+ **OutOfMemoryError**: Xảy ra khi Máy ảo Java (JVM) hết bộ nhớ.
+        		+ **StackOverflowError**: Xảy ra khi ngăn xếp cuộc gọi tràn do có quá nhiều lệnh gọi phương thức.
+            	+ **NoClassDefFoundError**: Xảy ra khi không tìm thấy lớp bắt buộc.
+          
+        - **Exception**: dùng để sử lý các lỗi có thể phục hồi từ bên trong chương trình, được biểu diễn bằng Exception class và các lớp con của nó.
+      		+ **NullPointerException** : Xảy ra khi truy cập tham chiếu null.
+        	+ **IllegalArgumentException**: Xảy ra khi một đối số không hợp lệ được truyền vào một phương thức.
+            + **IOException**: Xảy ra khi thao tác I/O không thành công.
+	- Checked Exception and Unchecked Exception:
+    	- Checked Exception: sẽ được check tại thời điểm complile. Nếu 1 đoan code với 1 phương thức ném ra checked exception, phương thức sẽ phải xử lý exception hoặc phải chỉ định exception sử dụng **throws**
+      		+ Fully Checked Exception: tất cả các lớp con cũng được kiểm tra (**IOException**, **InterruptedException**,...)
+        	+ Partially Checked Exception: sẽ có 1 vài lớp con của nó không được check (**Exception**,...)
+          
+		- Unchecked Exception: là các ngoại lệ thời gian chạy không cần phải bắt hoặc khai báo trong mệnh đề throws. Các ngoại lệ này thường do lỗi lập trình gây ra, chẳng hạn như cố gắng truy cập vào một chỉ mục nằm ngoài giới hạn trong một mảng hoặc cố gắng chia cho số không.
+      		+ Bao gồm tất cả các lớp con của lớp RuntimeException cũng như Error và các lớp con của nó.
+        	+ Ví dụ về unchecked exception trong Java:
+          		+ **ArrayIndexOutOfBoundsException**: Ngoại lệ này được đưa ra khi bạn cố truy cập vào một chỉ mục mảng nằm ngoài giới hạn.
+            	+ **NullPointerException**: Ngoại lệ này được đưa ra khi bạn cố truy cập vào một tham chiếu đối tượng null.
+                + **ArithmeticException**: Ngoại lệ này được đưa ra khi bạn cố chia cho 0 hoặc thực hiện một phép tính số học không hợp lệ.
+    
 	- try...catch...finally  
-	- throw vs throws  
+	- throw vs throws: 
+    	- throw: 
 	- try with resources  
 12. Multithreading (7 ngày)  
 	- Thread class  
