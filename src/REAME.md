@@ -271,8 +271,13 @@
             + **IOException**: Xảy ra khi thao tác I/O không thành công.
 	- Checked Exception and Unchecked Exception:
     	- Checked Exception: sẽ được check tại thời điểm complile. Nếu 1 đoan code với 1 phương thức ném ra checked exception, phương thức sẽ phải xử lý exception hoặc phải chỉ định exception sử dụng **throws**
-      		+ Fully Checked Exception: tất cả các lớp con cũng được kiểm tra (**IOException**, **InterruptedException**,...)
         	+ Partially Checked Exception: sẽ có 1 vài lớp con của nó không được check (**Exception**,...)
+            + Fully Checked Exception: tất cả các lớp con cũng được kiểm tra:
+          		+ **IOException**: Ngoại lệ liên quan đến file input / output
+            	+ **SQLException**: Ngoại lệ liên quan đến cú pháp SQL
+                + **DataAccessException**: Ngoại lệ liên quan đến việc truy cập CSDL
+                + **ClassNotFoundException**: Bị ném khi JVM không thể tìm thấy một lớp mà nó cần, do lỗi dòng lệnh, sự cố đường dẫn hoặc tệp, class bị thiếu...
+                + **InstantiationException**: Ngoại lệ khi cố gắng tạo đối tượng của một abstract class hoặc interface
           
 		- Unchecked Exception: là các ngoại lệ thời gian chạy không cần phải bắt hoặc khai báo trong mệnh đề throws. Các ngoại lệ này thường do lỗi lập trình gây ra, chẳng hạn như cố gắng truy cập vào một chỉ mục nằm ngoài giới hạn trong một mảng hoặc cố gắng chia cho số không.
       		+ Bao gồm tất cả các lớp con của lớp RuntimeException cũng như Error và các lớp con của nó.
@@ -280,11 +285,37 @@
           		+ **ArrayIndexOutOfBoundsException**: Ngoại lệ này được đưa ra khi bạn cố truy cập vào một chỉ mục mảng nằm ngoài giới hạn.
             	+ **NullPointerException**: Ngoại lệ này được đưa ra khi bạn cố truy cập vào một tham chiếu đối tượng null.
                 + **ArithmeticException**: Ngoại lệ này được đưa ra khi bạn cố chia cho 0 hoặc thực hiện một phép tính số học không hợp lệ.
+    			+ **NumberFormatException**: Ngoại lệ bị ném khi một phương thức chuyển đổi một Chuỗi thành số nhưng không thể chuyển đổi.
+                + **IllegalStateException**: Ngoại lệ bị ném ra khi trạng thái của môi trường không phù hợp với hoạt động cố gắng thực hiện, ví dụ: Sử dụng Scanner đã bị đóng.
+              
+	- try...catch...finally: Quá trình xử lý exception được gọi là catch exception (bắt ngoại lệ), nếu Runtime System không xử lý được ngoại lệ thì chương trình sẽ kết thúc.
+    	- Try: sử dụng để chứa 1 đoạn code thực thi mà có thể trong quá trình thực thi sẽ xảy ra ngoại lệ.
+      		+ Sau 1 khối lệnh **try** => phải khai báo **catch** hoặc **finally** hoặc cả 2.
+        
+		- Catch: sử dụng để xử lý nếu xảy ra exception, nếu không thì nó bị bỏ qua.
+      		+ Catch phải được sử dụng ngay sau try, có thể sử dụng nhiều khối **catch** nhưng chỉ được từ 1 khối **try** duy nhất.
+        - Finally: khối code luôn được thực hiện khi khai báo.
+    - throw vs throws: cũng là 1 cách dùng kết hợp try/catch để xử lý exception
+        - **throw**: từ khoá **throw** trong java được sử dụng để ném 1 checked/unchecked exception
+      		- Luồng chạy của chương trình sẽ bị dừng ngay khi throw được gọi. Chương trình sẽ tiến hnh tìm khối **try-catch** gần nhất để xử lý exception. Nếu không tìm thấy, chương trình sẽ tim khối **try-catch** cao hơn cho đến khi tìm được khối nào thì trình xử lý sẽ mặc định tạm ngưng chương trình.
+                + Nằm bên trong hàm
+                + Dùng để trả về 1 exception xác định
+                + Nếu là checked exception thì cần đi chung với throws, unchecked exception thì không cần
+                + Theo sau throw là duy nhất 1 trường hợp/ thực thể (instance) ngoại lệ.
+      	- **throws**: không giải quyết được ngoại lệ, chỉ "kêu lên": "ê, chỗ này đang có ngoại lệ" => để việc xử lý cho thằng khác làm :D
+          		+ Nằm ngay sau phần khai báo tên hàm/ phương thức
+          		+ Dùng để thông báo sự tồn tại của exception
+          		+ Nếu là checked exception thì không cần đi chung với throws
+          		+ Nếu là unchecked exception thì không cần throws
+          		+ Theo sau throws có thể là 1 hoặc nhiều class.
+	- try with resources: là 1 cấu trúc trong Java, giúp tự động đóng các tài nguyên (file, socket hay DB connections) sau khi sử dụng => ngăn ngừa rò rỉ tài nguyên
     
-	- try...catch...finally  
-	- throw vs throws: 
-    	- throw: 
-	- try with resources  
+	`try (FileReader fileReader = new FileReader("example.txt")) {
+	// Đọc file hoặc xử lý với fileReader
+	} catch (IOException e) {
+	// Xử lý lỗi nếu không thể đọc file
+	}`
+	
 12. Multithreading (7 ngày)  
 	- Thread class  
 	- Runnable interface  
