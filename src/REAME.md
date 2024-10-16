@@ -317,9 +317,41 @@
 	}`
 	
 12. Multithreading (7 ngày)  
-	- Thread class  
-	- Runnable interface  
-	- Thread lifecycle  
+	- Định nghĩa: thread (luồng) là 1 tiến trình con (sub-process). Một đơn vị xử lý nhỏ nhất của máy tính có thể thực hiện 1 công việc riêng biệt. Trong java, các luồng được quản lý bởi JVM.
+    	+ Multi-thread: là 1 tiến trình thực hiện nhiều luồng đồng thời. (Vd: trình duyệt web, nghe nhạc...)
+        + Multi-tasking: khả năng chạy đồng thời 1/nhiều chương trình cùng 1 lúc trên 1 hệ điều hành.
+        + Có 2 cách để đạt được đa nhiệm:
+      		+ Đa nhiệm dựa trên process và multiprocessing (mỗi tiến trình dùng 1 vùng bộ nhớ)
+        	+ Đa nhiệm dựa trên luồng và đa lồng (các luồng chia sẻ không gian địa chỉ ô nhớ giống nhau)
+        + Ưu điểm của đa luồng:
+      		+ Không chặn người dùng sử dụng vì luồng là độc lập => xử lý nhiều công việc 1 lúc
+        	+ Mỗi luồng có thể dùng chung và chia sẻ tài nguyên trong quá trình chạy, nhưng cũng có thể thực hiện độc lập
+            + Không ảnh hưởng đến luồng khác nếu xảy ra ngoại lệ
+            + Có thể thực hiện nhiều hoạt động với nhau để tiết kiệm tgian.
+        + Nhược điểm cua đa luồng:
+      		+ Càng nhiều luồng thì càng phức tạp
+        	+ Xử lý vấn đề tranh chấp bộ nhớ, đồng bộ dữ liệu sẽ phức tạp
+            + Cần phát hiện tránh các luồng chết (dead lock), luồng chạy mà không làm gì
+	- Thread class: 1 cách để tạo thread => extend **Thread** class rồi override phương thức **run()** của nó
+	  `public class Main extends Thread {
+          public void run() {
+                System.out.println("This code is running in a thread");
+          }
+      }`
+	- Runnable interface: 1 cách khác để tạo thread là implement **Runnable** interface:
+    	`public class Main implements Runnalble {
+    		public void run() {
+    			System.out.println("This code is running a thread");
+    		}
+    	}`
+	- Thread lifecycle:
+    	- Vòng đời của thread trong Java được kiểm soát bởi JVM. Java định nghĩa các trạng thái của luồng trong các thuộc tính static của lớp Thread.State:
+      		+ **NEW**: luồng vừa được khởi tạo của lớp Thread nhưng chưa được start() =>> được tạo ra nhưng chưa được cấp phát tài nguyên. Nếu gọi các phương thức ép buộc như stop, resume, suspend,... thì sẽ xảy ra ngoại lệ **IllegalThreadException**
+        	+ **RUNNABLE**: Sau khi gọi phương thức start() thì luồng test đã được cấp phát tài nguyên và các lịch điều phối CPU cho luồng test cũng bắt đầu có hiệu lực. Ở đây, chúng ta dùng trạng thái là Runnable chứ không phải Running, vì luồng không thực sự luôn chạy mà tùy vào hệ thống mà có sự điều phối CPU khác nhau.
+            + **WAITING**: Thread chờ không giới hạn cho đến khi một luồng khác đánh thức nó.
+            + **TIMED_WAITING**: Thread chờ trong một thời gian nhất định, hoặc là có một luồng khác đánh thức nó.
+            + **BLOCKED**: Đây là 1 dạng của trạng thái “Not Runnable”, là trạng thái khi Thread vẫn còn sống, nhưng hiện tại không được chọn để chạy. Thread chờ một monitor để unlock một đối tượng mà nó cần.
+            + **TERMINATED**: Một thread ở trong trạng thái terminated hoặc dead khi phương thức run() của nó bị thoát.
 	- Thread priority  
 	- Các method trong Thread class  
 	- Thread safe  
