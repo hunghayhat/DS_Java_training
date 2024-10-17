@@ -352,8 +352,34 @@
             + **TIMED_WAITING**: Thread chờ trong một thời gian nhất định, hoặc là có một luồng khác đánh thức nó.
             + **BLOCKED**: Đây là 1 dạng của trạng thái “Not Runnable”, là trạng thái khi Thread vẫn còn sống, nhưng hiện tại không được chọn để chạy. Thread chờ một monitor để unlock một đối tượng mà nó cần.
             + **TERMINATED**: Một thread ở trong trạng thái terminated hoặc dead khi phương thức run() của nó bị thoát.
-	- Thread priority  
-	- Các method trong Thread class  
+	- Thread priority: mỗi luồng có 1 độ ưu tiên, được biểu thị bằng các số từ 1-10
+    	- Mức ưu tiên mặc định: 5 (public static int NORM_PRIORITY)
+      	- Mức ưu tiên min: 1 (public static int MIN_PRIORITY)
+        - Mức ưu tiên max: (public static int MAX_PRIORITY)
+        - Chúng ta sẽ sử dụng phương thức currentThread() để lấy tên của luồng hiện tại. Người dùng cũng có thể sử dụng phương thức setName() nếu muốn đặt tên luồng theo ý muốn để dễ hiểu.
+		  Phương thức getName() sẽ được sử dụng để lấy tên của luồng.
+        - **public final int getPriority()**: phương thức **java.lang.Thread.getPriority()** trả về mức độ ưu tiên của luồng đã cho
+        - public final void setPriority(int newPriority): phương thức java.lang.Thread.setPriority() thay đổi mức độ ưu tiên của luồng thành giá trị newPriority. Phương thức này ném IllegalArgumentException nếu giá trị của tham số newPriority vượt quá giới hạn minimum(1) và maximum(10).
+	- Các method trong Thread class:
+    	+ **suspend()**: Phương thức này tạm dừng hoạt động của một luồng bằng cách ngưng cung cấp CPU cho luồng đó. Luồng vẫn tồn tại và có thể được khởi động lại bằng phương thức resume(). Chú ý rằng việc sử dụng suspend() không nên được khuyến nghị vì nó có thể dẫn đến các vấn đề như deadlock.
+        + **resume()**: Phương thức này sử dụng để tiếp tục hoạt động của một luồng sau khi nó đã bị tạm dừng bằng suspend()
+        + **stop()**: Phương thức này dùng để kết thúc một luồng bằng cách ném ra ngoại lệ ThreadDeath. Tuy nhiên, việc sử dụng stop() không được khuyến nghị, vì nó có thể gây ra các vấn đề như sảy ra deadlock và không giải phóng tài nguyên một cách đúng đắn.
+        + **destroy()**: dùng để đột ngột dừng luồng. Tương tự **stop()**, sử dụng destroy() không được khuyến nghị.
+        + **isAlive()**: kiểm tra xem 1 luồng còn sống (active) hay không. Nó trả về true nếu luồng đã được khởi động bằng start() và vẫn còn hoạt động, ngược lại trả về false.
+        + **yield()**: dùng để nhường CPU cho các luồng khác trong hàng đợi Ready. Nó ngừng cấp CPU trong lần nhận CPU đó và cho phép các luồng khác được chạy.
+          + Một số phương thức khác:
+          	+ **sleep()**: Sử dụng để ngừng luồng trong một khoảng thời gian nhất định.
+          	+ **join()**: Sử dụng để đợi một luồng khác hoàn thành trước khi luồng hiện tại tiếp tục thực thi.
+          	+ **getName()**: Trả về tên của luồng.
+          	+ **setName()**: Thay đổi tên của luồng.
+          	+ **getId()**: Trả về ID của luồng.
+          	+ **getState()**: Trả về trạng thái của luồng.
+          	+ **currentThread()**: Trả về tham chiếu của luồng đang được thi hành.
+          	+ **getPriority()**: Trả về mức độ ưu tiên của luồng.
+          	+ **setPriority()**: Thay đổi mức độ ưu tiên của luồng.
+          	+ **isDaemon()**: Kiểm tra xem luồng có phải là luồng daemon hay không.
+          	+ **setDaemon()**: Xác định xem luồng có phải là luồng daemon hay không.
+          	+ **interrupt()**: Sử dụng để gián đoạn một luồng, thường dùng để kết thúc một luồng đang chạy.
 	- Thread safe  
 	- Thread synchronization  
 	- Inter-Thread Communication  
