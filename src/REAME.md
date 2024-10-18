@@ -421,7 +421,8 @@
 	- List: ArrayList, LinkedList, Vector, Stack  
 	- Map: HashMap, LinkedHashMap, HashTable, TreeMap  
 	- Queue: PriorityQueue, ArrayQueue  
-	- Set: HashSet, LinkedHashSet, TreeSet  
+	- Set: HashSet, LinkedHashSet, TreeSet
+    	+ HashSet: một tập hợp các mục trong đó mỗi mục là duy nhất và được tìm thấy trong gói java.util
 	- Iterator  
 	- Comparable  
 	- Comparator  
