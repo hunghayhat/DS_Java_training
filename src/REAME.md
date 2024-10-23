@@ -423,7 +423,15 @@
 	- Queue: PriorityQueue, ArrayQueue  
 	- Set: HashSet, LinkedHashSet, TreeSet
     	+ HashSet: một tập hợp các mục trong đó mỗi mục là duy nhất và được tìm thấy trong gói java.util
-	- Iterator  
+	- Iterator: là 1 object có thể dùng để lặp qua collections (ArrayList, HashSet)
+    	+ Để dùng Iterator, phải import nó từ package java.util
+        + Một số phương thức của Iterator Interface:
+      		+ hasNext(): trả về true nếu iteration có nhiều phần tử hơn
+        	+ next(): trả về phần tử tiếp theo của iteration, nó sẽ ném ra exception **NoSuchElementException** nếu không có phần tử tiếp theo tồn tại
+            + remove(): Xoá phần tử tiếp theo trong iteration. Nó chỉ có thể dùng 1 lần mỗi lần call next()
+          		+ remove() có thể ném ra 2 ngoại lệ:
+                  + **UnsupportedOperationException** : If the remove operation is not supported by this iterator
+                  + **IllegalStateException** : If the next method has not yet been called, or the remove method has already been called after the last call to the next method.
 	- Comparable  
 	- Comparator  
 	- StringTokenizer  
